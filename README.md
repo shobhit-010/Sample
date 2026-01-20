@@ -118,23 +118,24 @@ This ensures **system stability, security, and ease of maintenance**.
 
 ### Step-by-step Installation Instructions
 
-Update package repository:
-```bash
-sudo apt update
-```
+- Update package repository:
+  
+  ```bash
+    sudo apt update
+  ```
 - Install a package
 
   ```bash
-  sudo apt install <package-name>
+  sudo apt install nginx
   ```
 - Install package without confirmation
    ```bash
-   sudo apt install -y <package-name>
+   sudo apt install -y nginx
    ```
 - Install specific version
 
   ```bash
-  sudo apt install <package-name>=<version>
+  sudo apt install nginx=1.18.0-0ubuntu1
   ```
 
 - Updating Software 
