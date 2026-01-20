@@ -6,40 +6,36 @@
 
 ---
 
-## 📌 Introduction
+## 📑 Table of Contents
+
+- [Introduction](#introduction)
+- [Purpose](#purpose)
+- [Key Features](#key-features)
+- [Pre-requisites](#pre-requisites)
+- [Software Overview](#software-overview)
+- [System Requirements](#system-requirements)
+- [Important Ports](#important-ports)
+- [Dependencies](#dependencies)
+- [Setup / Installation](#setup-installation)
+- [Maintenance](#maintenance)
+- [Monitoring](#monitoring)
+- [Disaster Recovery](#disaster-recovery)
+- [High Availability](#high-availability)
+- [Troubleshooting](#troubleshooting)
+- [FAQs](#faqs)
+- [Contact Information](#contact-information)
+- [References](#references)
+
+---
+
+## Introduction
 
 **APT (Advanced Package Tool)** is a widely used package manager for **Debian-based Linux distributions** such as Ubuntu.  
 This SOP provides a **standardized procedure** for installing, updating, upgrading, and removing software packages in a **consistent, secure, and reliable** manner.
 
 ---
 
-## 📑 Table of Contents
-
-- [📌 Introduction](#-introduction)  
-- [🎯 Purpose](#-purpose)  
-- [⭐ Key Features](#-key-features)  
-- [✅ Pre-requisites](#-pre-requisites)  
-- [📘 Software Overview](#-software-overview)  
-- [💻 System Requirements](#-system-requirements)  
-- [🌐 Important Ports](#-important-ports)  
-- [🔗 Dependencies](#-dependencies)  
-- [⚙️ Setup / Installation](#️-setup--installation)  
-- [🔄 Updating Software](#-updating-software)  
-- [🗑️ Removing Software](#️-removing-software)  
-- [🚩 Common APT Flags](#-common-apt-flags)  
-- [🛠️ Configuration](#️-configuration)  
-- [🧹 Maintenance](#-maintenance)  
-- [📊 Monitoring](#-monitoring)  
-- [🛡️ Disaster Recovery](#️-disaster-recovery)  
-- [⚡ High Availability](#-high-availability)  
-- [🐞 Troubleshooting](#-troubleshooting)  
-- [❓ FAQs](#-faqs)  
-- [📞 Contact](#-contact)  
-- [📚 References](#-references)  
-
----
-
-## 🎯 Purpose
+## Purpose
 
 The purpose of this SOP is to define standardized steps for:
 
@@ -52,7 +48,7 @@ This ensures **system stability, security, and ease of maintenance**.
 
 ---
 
-## ⭐ Key Features
+## Key Features <a id="key-features"></a>
 
 - Simple and efficient software installation  
 - Automatic dependency management  
@@ -62,17 +58,17 @@ This ensures **system stability, security, and ease of maintenance**.
 
 ---
 
-## ✅ Pre-requisites
+## Pre-requisites <a id="pre-requisites"></a>
 
-| Requirement     | Description                     |
-|-----------------|---------------------------------|
-| Operating System| Debian / Ubuntu-based Linux     |
-| User Access     | Root or sudo privileges         |
-| Network         | Internet access required        |
+| Requirement      | Description                     |
+|------------------|---------------------------------|
+| Operating System | Debian / Ubuntu-based Linux     |
+| User Access      | Root or sudo privileges         |
+| Network          | Internet access required        |
 
 ---
 
-## 📘 Software Overview
+## Software Overview <a id="software-overview"></a>
 
 | Software | Version              |
 |----------|----------------------|
@@ -80,7 +76,7 @@ This ensures **system stability, security, and ease of maintenance**.
 
 ---
 
-## 💻 System Requirements
+## System Requirements <a id="system-requirements"></a>
 
 | Requirement | Minimum Recommendation |
 |-------------|-------------------------|
@@ -91,16 +87,16 @@ This ensures **system stability, security, and ease of maintenance**.
 
 ---
 
-## 🌐 Important Ports
+## Important Ports <a id="important-ports"></a>
 
-| Port | Description                                      |
-|------|--------------------------------------------------|
-| 22   | SSH access for remote package management         |
-| 80/443 | Required for downloading packages from repos   |
+| Port   | Description                                      |
+|--------|--------------------------------------------------|
+| 22     | SSH access for remote package management         |
+| 80/443 | Required for downloading packages from repos     |
 
 ---
 
-## 🔗 Dependencies
+## Dependencies <a id="dependencies"></a>
 
 ### Run-time Dependencies
 
@@ -118,15 +114,14 @@ This ensures **system stability, security, and ease of maintenance**.
 
 ---
 
-## ⚙️ Setup / Installation
+## Setup / Installation <a id="setup-installation"></a>
 
-**Step-by-step Installation Instructions:**
+### Step-by-step Installation Instructions
 
-- Update package repository
-  
-  ```bash
-  sudo apt update
-  ```
+Update package repository:
+```bash
+sudo apt update
+```
 - Install a package
 
   ```bash
@@ -188,14 +183,16 @@ sudo apt update
 ```
 after modifying repository files.
 
-## Maintenance
-Task	Command
-Update repository	sudo apt update
-Upgrade system	sudo apt upgrade
-Fix dependencies	sudo apt --fix-broken install
-Clean cache	sudo apt clean
+## Maintenance <a id="maintenance"></a>
 
-## Monitoring
+| Task               | Command                          |
+|--------------------|----------------------------------|
+| Update repository  | sudo apt update                  |
+| Upgrade system     | sudo apt upgrade                 |
+| Fix dependencies   | sudo apt --fix-broken install    |
+| Clean cache        | sudo apt clean                   |
+
+## Monitoring <a id="monitoring"></a>
 
 - Verify package installation:
 
@@ -209,51 +206,56 @@ dpkg -l | grep <package-name>
 /var/log/dpkg.log
 ```
 
-## Disaster Recovery
+## Disaster Recovery <a id="disaster-recovery"></a>
 
+- Maintain regular system backups
 
-Maintain regular system backups
+- Use --dry-run before major upgrades
 
-Use --dry-run before major upgrades
+- Keep repository sources verified
 
-Keep repository sources verified
+- Document package versions before upgrades
 
-Document package versions before upgrades
+## High Availability <a id="high-availability"></a>
 
-High Availability
+- Use automation tools (Ansible, scripts)
 
-Use automation tools (Ansible, scripts)
+- Maintain package version consistency across nodes
 
-Maintain package version consistency across nodes
+- Use local mirrors for faster recovery
 
-Use local mirrors for faster recovery
+- Perform rolling updates to avoid downtime
 
-Perform rolling updates to avoid downtime
+## Troubleshooting <a id="troubleshooting"></a>
 
-Troubleshooting
-Issue	Cause	Solution
-Package not found	Repository not updated	Run apt update
-Broken dependencies	Interrupted install	Run apt -f install
-Locked dpkg	Another process running	Remove lock & retry
-FAQs
+| Issue               | Cause                    | Solution             |
+|---------------------|--------------------------|----------------------|
+| Package not found   | Repository not updated   | Run apt update       |
+| Broken dependencies | Interrupted install      | Run apt -f install   |
+| Locked dpkg         | Another process running  | Remove lock & retry  |
 
-Is APT free to use?
+## FAQs <a id="faqs"></a>
+
+**Is APT free to use?**
 Yes, it is open-source.
 
-Can APT be used on all Linux distributions?
+**Can APT be used on all Linux distributions?** 
 No, it is specific to Debian-based systems.
 
-Does APT handle dependencies automatically?
+**Does APT handle dependencies automatically?**
 Yes, dependencies are resolved automatically.
 
-Contact Information
-Name	Email Address
-ABC	abc@mygurukulam.co
-References
-Links	Description
-https://manpages.ubuntu.com/manpages/jammy/man8/apt.8.html
-	Official APT documentation
-https://wiki.debian.org/Apt
-	Debian APT Guide
-https://ubuntu.com/server/docs/package-management
-	Ubuntu package management
+## Contact Information <a id="contact-information"></a>
+
+| Name | Email Address          |
+|------|------------------------|
+| ABC  | abc@mygurukulam.co     |
+
+## References <a id="references"></a>
+
+| Links                                                         | Description                    |
+|---------------------------------------------------------------|--------------------------------|
+| https://manpages.ubuntu.com/manpages/jammy/man8/apt.8.html    | Official APT documentation     |
+| https://wiki.debian.org/Apt                                   | Debian APT Guide               |
+| https://ubuntu.com/server/docs/package-management             | Ubuntu package management      |
+
